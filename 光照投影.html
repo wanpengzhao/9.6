@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style>
+    *{margin:0;padding:0;}
+    .box{width:100px;height:100px;border-radius:50%;background:#FC3;box-shadow:0 0 100px #FC3;
+        position:absolute;top:0;left:0;}
+    #content{font-size:90px;font-family:微软雅黑;height:200px;line-height:200px;margin-top:200px;
+         font-weight:bold;text-align:center;text-shadow:0 0 0 #000;
+    }
+</style>
+<script>
+    window.onload = function(){
+        var oBox = document.querySelector('.box');
+        var oCon = document.getElementById('content')
+    document.onmousemove = function(ev){
+        oBox.style.left = ev.pageX - oBox.offsetWidth/2+'px';
+        oBox.style.top = ev.pageY - oBox.offsetHeight/2+'px';
+
+        var x = oCon.offsetLeft+oCon.offsetWidth/2 - ev.pageX;
+        var y = oCon.offsetTop+oCon.offsetHeight/2 - ev.pageY;
+        var dis = Math.sqrt(x*x+y*y);
+        oCon.style.textShadow = x/3+'px '+y/3+'px '+dis/10+'px #000';
+        //oCon.style.textShadow = x/3+'px '+y/3+'px '+dis/10+'px #000';
+    };
+    };
+</script>
+<body>
+    <div class="box"></div>
+    <P id="content">你妹的</P>
+</body>
+</html>
